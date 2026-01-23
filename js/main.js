@@ -235,3 +235,29 @@ window.addEventListener('scroll', () => {
 // Initial call
 updateParallax();
 updateScrollAnimations();
+
+// ================================
+// LINE MODAL FUNCTIONS
+// ================================
+function openLineModal() {
+    const modal = document.getElementById('lineModal');
+    if (modal) {
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeLineModal() {
+    const modal = document.getElementById('lineModal');
+    if (modal) {
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+    }
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeLineModal();
+    }
+});

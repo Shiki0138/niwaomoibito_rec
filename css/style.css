@@ -203,15 +203,22 @@ a {
 .hero__scroll {
     display: inline-block;
     margin-top: 40px;
-    padding: 12px 24px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 14px 28px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
     font-size: 0.9rem;
+    font-weight: 500;
+    color: #fff;
     transition: all 0.3s;
+    backdrop-filter: blur(4px);
 }
 
 .hero__scroll:hover {
+    background: var(--color-accent);
     border-color: var(--color-accent);
-    color: var(--color-accent);
+    color: #fff;
+    transform: translateY(-2px);
 }
 
 .u-text-accent {
@@ -1464,4 +1471,188 @@ a {
 
 .hero__scroll {
     animation: heroFadeIn 1s ease-out 0.8s both;
+}
+
+/* ================================
+   LINE MODAL STYLES
+   ================================ */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.is-open {
+    display: flex;
+}
+
+.modal__backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal__content {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 32px;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    animation: modalSlideUp 0.3s ease-out;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+}
+
+.modal__close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.modal__close:hover {
+    color: #333;
+}
+
+.modal__icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.modal__title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 16px;
+}
+
+.modal__desc {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.modal__desc strong {
+    color: var(--color-accent);
+}
+
+.modal__list {
+    list-style: none;
+    text-align: left;
+    background: #f8faf9;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+
+.modal__list li {
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.modal__list li:last-child {
+    margin-bottom: 0;
+}
+
+.modal__btn {
+    display: inline-block;
+    background: #06C755;
+    color: #fff;
+    padding: 16px 40px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.modal__btn:hover {
+    background: #05b04c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(6, 199, 85, 0.3);
+}
+
+.modal__instruction {
+    margin-top: 20px;
+    padding: 16px;
+    background: #fff8e6;
+    border: 1px dashed #e6c849;
+    border-radius: 8px;
+}
+
+.modal__instruction p {
+    font-size: 0.95rem;
+    color: #665c33;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.modal__instruction strong {
+    color: #c5a059;
+    font-size: 1.1rem;
+}
+
+.modal__note {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 12px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal Mobile Adjustments */
+@media (max-width: 768px) {
+    .modal__content {
+        padding: 32px 24px;
+        margin: 16px;
+    }
+
+    .modal__title {
+        font-size: 1.2rem;
+    }
+
+    .modal__btn {
+        width: 100%;
+        padding: 14px 24px;
+    }
 }

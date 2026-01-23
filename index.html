@@ -23,7 +23,7 @@
         <nav class="header__nav">
             <a href="#roadmap" class="header__link">独立への道</a>
             <a href="#support" class="header__link">独立支援制度</a>
-            <a href="#contact" class="header__btn">問い合わせはこちら</a>
+            <a href="#contact" class="header__btn" onclick="openLineModal(); return false;">問い合わせはこちら</a>
         </nav>
     </header>
 
@@ -415,8 +415,8 @@
                         あなたの5年後、10年後のキャリアについて、<br>
                         直接、本音で話してみませんか。
                     </p>
-                    <a href="https://line.me/R/ti/p/@niwaomoibito" target="_blank"
-                        class="btn btn--primary">問い合わせはこちら（秘密厳守・履歴書不要）</a>
+                    <button type="button" class="btn btn--primary"
+                        onclick="openLineModal()">問い合わせはこちら（秘密厳守・履歴書不要）</button>
                 </div>
             </div>
         </section>
@@ -425,9 +425,35 @@
 
     <!-- Mobile Floating CTA Button -->
     <div class="mobile-cta">
-        <a href="https://line.me/R/ti/p/@niwaomoibito" target="_blank" class="mobile-cta__btn">
+        <button type="button" class="mobile-cta__btn" onclick="openLineModal()">
             問い合わせはこちら
-        </a>
+        </button>
+    </div>
+
+    <!-- LINE Confirmation Modal -->
+    <div id="lineModal" class="modal">
+        <div class="modal__backdrop" onclick="closeLineModal()"></div>
+        <div class="modal__content">
+            <button type="button" class="modal__close" onclick="closeLineModal()">&times;</button>
+            <div class="modal__icon">💬</div>
+            <h3 class="modal__title">LINEで気軽にお問い合わせ</h3>
+            <p class="modal__desc">
+                庭想人の公式LINEでは、求人に関するご質問やご相談を<br>
+                <strong>秘密厳守・履歴書不要</strong>でお受けしています。
+            </p>
+            <ul class="modal__list">
+                <li>✓ 在職中でもOK、まずは情報収集だけでも歓迎</li>
+                <li>✓ 代表と直接やりとり、営業の連絡は一切なし</li>
+                <li>✓ お返事は通常1〜2営業日以内</li>
+            </ul>
+            <a href="https://line.me/R/ti/p/@704svgss" target="_blank" class="modal__btn">
+                LINEで問い合わせる
+            </a>
+            <div class="modal__instruction">
+                <p>友だち追加後、<br><strong>「求人の問い合わせ」</strong><br>とご入力ください</p>
+            </div>
+            <p class="modal__note">※ LINEアプリが開きます</p>
+        </div>
     </div>
 
     <footer class="footer">
